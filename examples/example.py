@@ -1,20 +1,10 @@
-# import os
-# os.environ['CUDA_VISIBLE_DEVICES'] = '0,5,6,7'
-# import torch
-# print(f"Available GPUs: {torch.cuda.device_count()}")
-
 from conformer import Calibrator, Sampler, Components
-from random import randint
-from transformers import LlamaTokenizer, LlamaForCausalLM
 from datasets import load_dataset
-from transformers import StoppingCriteria, StoppingCriteriaList
 from transformers import (
     AutoModelForCausalLM,
-    AutoModelForSequenceClassification,
     AutoTokenizer,
 )
 
-import os
 import torch
 
 # Set the dataset
@@ -95,7 +85,7 @@ lambdaz = calibrator.search()
 sampler = Sampler.from_calibrator(calibrator, lambdaz)
 
 # Set the question prompt
-prompt = 'The Londoner has filmed a TV movie called "My Boy Jack," about author Rudyard Kipling and his son, due for release later this year. Write a spotlight for this:'
+prompt = 'The Londoner has filmed a TV movie called "My Boy Jack," about author Rudyard Kipling and his son, due for release later this year. Write a highlight for the article: '
 
 # Get the response
 responses = sampler.sample_with_rejection(prompt, 5)
