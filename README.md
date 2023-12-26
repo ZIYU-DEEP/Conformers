@@ -1,5 +1,9 @@
 # Conformers
 
+[Dec 25, 2023] Updated the sampling function to generate the conformal prediction set. Tentative next steps including improving the lambda search function and adding the beam search for reasoning based on the component selection algorithm. 
+
+Below are from the original author's writeup.
+================================================================
 This is an unofficial implementation of the paper [Conformal Language Modelling](https://arxiv.org/abs/2306.10193).
 I found the paper interesting and wanted to play around with it.
 Still in a very early state - the only rigorous, statistical guarantee currently is that there are bugs and misunderstandings.
